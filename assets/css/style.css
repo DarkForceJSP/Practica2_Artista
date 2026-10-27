@@ -1,0 +1,1642 @@
+@import url("https://fonts.googleapis.com/css2?family=Gravitas+One&family=Gveret+Levin&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Gravitas One", serif;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: #052027;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+h4 {
+  font-size: clamp(1.4rem, 2.1vw, 2.5rem);
+  text-transform: uppercase;
+  font-family: "Gravitas One", serif;
+  color: #762f2f;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 3.4vw, 4rem);
+  font-family: "Gravitas One", serif;
+  font-weight: normal;
+}
+
+h1 span,
+.hero-title span {
+  color: #762f2f;
+}
+
+h2 {
+  font-family: "Gravitas One", serif;
+  font-weight: normal;
+}
+
+/* ------------------ ELEMENTOS COMUNES ------------------ */
+
+.hline {
+  flex: 1;
+  height: 2px;
+  background-color: #d79870;
+}
+
+.hline-bottom {
+  width: 100%;
+  height: 2px;
+  background-color: #d79870;
+  margin-top: 0.5rem;
+}
+
+.section-header {
+  width: 31vw;
+  min-width: 300px;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5rem;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-right {
+  margin-left: auto;
+}
+
+.small-title {
+  font-size: 1.2rem;
+  color: #e0605a;
+}
+
+.small-title.white {
+  color: white;
+}
+
+.label-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.play {
+  width: 2.4rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  border: 0;
+  background-color: #762f2f;
+  color: white;
+  font-size: 0.7rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play:hover {
+  background-color: #e0605a;
+}
+
+/* ------------------------- NAV -------------------------- */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 9vh;
+  min-height: 80px;
+  padding: 0 1.5rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-image: linear-gradient(to bottom, #000 60%, rgba(0, 0, 0, 0));
+}
+
+.logo {
+  flex: 1;
+  height: 100px;
+  min-height: 80px;
+}
+
+.img-logo {
+  height: 100%;
+  width: 100%;
+  background-image: url("../img/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.nav {
+  flex: 6;
+  display: flex;
+  justify-content: end;
+}
+
+.menu-on {
+  display: flex;
+  align-items: center;
+}
+
+.menu-on li a {
+  display: block;
+  padding: 0 1.8rem;
+  text-transform: uppercase;
+  color: #d79870;
+  font-size: clamp(1.4rem, 2.1vw, 2.5rem);
+  font-family: "Gveret Levin", serif;
+}
+
+.menu-on li + li {
+  border-left: 1px solid #d79870;
+}
+
+.menu-on li a:hover,
+.menu-on li a.menu-active {
+  color: white;
+}
+
+.nav-collapse {
+  display: none;
+}
+
+/* ------------------------- HERO -------------------------- */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(10, 42, 50, 0) 85%,
+      #0a2a32 100%
+    ),
+    url("../img/hero-bg.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hero-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.hero-left {
+  flex: 1.1;
+  height: 100%;
+  padding: 14vh 0 8vh 6vw;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 6.8vw, 8.5rem);
+  line-height: 1.15;
+  color: white;
+}
+
+.hero-quote {
+  max-width: 750px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+  gap: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.btn-discover {
+  background-color: #762f2f;
+  border-radius: 9px;
+  padding: 0.4rem 1.2rem;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.btn-discover:hover {
+  background-color: #e0605a;
+}
+
+.hero-right {
+  flex: 1;
+  height: 100%;
+  background-image: url("../img/mora-hero.png");
+  background-size: contain;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
+
+.hero-arrow {
+  position: absolute;
+  right: 5%;
+  bottom: 2rem;
+  font-size: 2.5rem;
+  color: white;
+}
+
+/* ------------------------- BIOGRAPHY -------------------------- */
+
+.biography {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0a2a32;
+  background-image: linear-gradient(135deg, #0a2a32 47%, #052027 100%);
+}
+
+.container-bio {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.bio-photo {
+  flex: 1;
+  align-self: flex-end;
+  height: 85vh;
+  background-image: url("../img/bio-photo.png");
+  background-size: contain;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+}
+
+.bio-text {
+  flex: 1.2;
+  padding: 4rem 6vw 4rem 2rem;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.5rem;
+}
+
+.bio-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 600px;
+}
+
+.bio-text p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  max-width: 854px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 808px;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid #d79870;
+}
+
+.milestone {
+  position: relative;
+}
+
+.milestone p {
+  font-size: 0.95rem;
+}
+
+.milestone p span {
+  color: #762f2f;
+}
+
+.point {
+  position: absolute;
+  top: calc(-1.5rem - 10px);
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: 2px solid #d79870;
+  background-color: #052027;
+}
+
+.milestone:nth-child(1) .point {
+  left: 0;
+}
+
+.milestone:nth-child(2) {
+  text-align: center;
+}
+
+.milestone:nth-child(2) .point {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.milestone:nth-child(3) {
+  text-align: right;
+}
+
+.milestone:nth-child(3) .point {
+  right: 0;
+}
+
+/* ------------------------- ALBUMS -------------------------- */
+
+.albums {
+  width: 100%;
+  min-height: 100vh;
+  padding: 6rem 5%;
+  background-color: #0a2a32;
+  background-image: linear-gradient(315deg, #0a2a32 47%, #052027 100%);
+}
+
+.albums-container {
+  width: 100%;
+  max-width: 1713px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.featured {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  gap: 3rem;
+  margin-top: 2rem;
+  padding: 3rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: clamp(2rem, 4vw, 76px);
+}
+
+.featured-cover {
+  flex: 1;
+  min-height: 24rem;
+  background-image: url("../img/album-lomismo.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.featured-info {
+  flex: 1.2;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.featured-info .label-row {
+  width: 100%;
+}
+
+.featured-name {
+  font-size: clamp(1.6rem, 1.7vw, 2rem);
+  color: white;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.95rem;
+  color: #e0605a;
+}
+
+.sep-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #e0605a;
+}
+
+.btn-listen {
+  background-color: #762f2f;
+  border: 0;
+  border-radius: 9px;
+  padding: 0.4rem 1.4rem;
+  font-family: "Gravitas One", serif;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-listen:hover,
+.btn-stream:hover {
+  background-color: #e0605a;
+}
+
+.stream-title {
+  margin-top: 1rem;
+}
+
+.stream {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.9rem;
+}
+
+.btn-stream {
+  background-color: #762f2f;
+  border-radius: 9px;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.95rem;
+  color: white;
+}
+
+.top-songs {
+  flex: 1.1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  gap: 0.9rem;
+}
+
+.label-row-right {
+  justify-content: flex-end;
+  margin-bottom: 0.6rem;
+}
+
+.song {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.35rem 1rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+.song-num {
+  font-size: 1.2rem;
+  min-width: 2rem;
+}
+
+.song-name {
+  flex: 1;
+  font-size: 1rem;
+}
+
+.song-time {
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.song-time .sep {
+  color: #762f2f;
+}
+
+.song.playing {
+  background-color: rgba(118, 47, 47, 0.45);
+}
+
+.albums-list {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.album {
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.2rem;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 2rem;
+}
+
+.album-top {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1.2rem;
+}
+
+.album-cover {
+  flex: 1;
+  aspect-ratio: 1;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.album:nth-child(1) .album-cover {
+  background-image: url("../img/album-primer-dia.jpg");
+}
+
+.album:nth-child(2) .album-cover {
+  background-image: url("../img/album-microdosis.jpg");
+}
+
+.album:nth-child(3) .album-cover {
+  background-image: url("../img/album-paraiso.jpg");
+}
+
+.album:nth-child(4) .album-cover {
+  background-image: url("../img/album-estrella.jpg");
+}
+
+.album-meta {
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #e0605a;
+}
+
+.album-data p {
+  margin-bottom: 0.6rem;
+}
+
+.album-meta .play {
+  align-self: flex-end;
+  width: 4.4rem;
+  height: 3.2rem;
+  font-size: 1.2rem;
+}
+
+.album-title {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* ------------------------- VIDEOS -------------------------- */
+
+.videos {
+  width: 100%;
+  padding: 6rem 5% 4rem 5%;
+  background-color: #0a2a32;
+  background-image: linear-gradient(135deg, #0a2a32 47%, #052027 100%);
+}
+
+.videos-container {
+  width: 100%;
+  max-width: 1715px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 3rem;
+}
+
+.videos-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.videos-header h4 {
+  color: white;
+}
+
+.video-main {
+  width: 60%;
+}
+
+.video-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: black;
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-title {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+}
+
+.video-list {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.video-item {
+  flex: 1;
+  max-width: 449px;
+}
+
+.video-item .video-title {
+  font-size: 1.15rem;
+}
+
+/* ------------------------- ON TOUR -------------------------- */
+
+.tour {
+  width: 100%;
+  min-height: 100vh;
+  padding: 4rem 5% 6rem 5%;
+  background-color: #0a2a32;
+  background-image: linear-gradient(315deg, #0a2a32 47%, #052027 100%);
+}
+
+.tour-container {
+  width: 100%;
+  max-width: 1728px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.tour-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1728 / 560;
+  margin-top: 3rem;
+  margin-bottom: 2.5rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  background-image: url("../img/tour-map.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 2px solid #762f2f;
+  border-radius: 2rem;
+}
+
+.chip {
+  position: absolute;
+  top: 6.5%;
+  padding: 0.3rem 0.9rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid #762f2f;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.chip-route {
+  left: 2.5%;
+}
+
+.chip-count {
+  right: 2.5%;
+  color: #e0605a;
+}
+
+.pin {
+  position: absolute;
+}
+
+.pin-dot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #762f2f;
+  box-shadow: 0 0 0 12px rgba(224, 96, 90, 0.25);
+  color: white;
+  font-size: 1.05rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pin-1 .pin-dot {
+  background-color: #e0605a;
+  color: #08141a;
+}
+
+.pin-1 {
+  left: 80.8%;
+  top: 36.6%;
+}
+
+.pin-2 {
+  left: 84.8%;
+  top: 34.9%;
+}
+
+.pin-3 {
+  left: 17.3%;
+  top: 72.2%;
+}
+
+.pin-4 {
+  left: 39.3%;
+  top: 73.7%;
+}
+
+.pin-5 {
+  left: 29.9%;
+  top: 61.4%;
+}
+
+.pin-label {
+  position: absolute;
+  left: 32px;
+  top: 0;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0.8rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid #762f2f;
+  border-radius: 10px;
+  white-space: nowrap;
+  font-size: 1rem;
+}
+
+.pin-label-left {
+  left: auto;
+  right: 32px;
+}
+
+.pin-label-top {
+  left: 0;
+  top: -52px;
+  transform: translateX(-50%);
+}
+
+.pin-date {
+  font-size: 0.8rem;
+  color: #e0605a;
+  align-self: center;
+}
+
+.shows {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.8rem;
+}
+
+.show {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  min-height: 104px;
+  padding: 1rem 3rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(215, 152, 112, 0.25);
+  border-radius: 1.2rem;
+}
+
+.show-next {
+  border: 1px solid #e0605a;
+  background-color: rgba(224, 96, 90, 0.12);
+}
+
+.show-date {
+  flex: 1.2;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.day {
+  font-size: clamp(2.2rem, 2.7vw, 3.25rem);
+}
+
+.month-year {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.month {
+  font-size: 1.2rem;
+}
+
+.year {
+  font-size: 0.85rem;
+  color: #e0605a;
+}
+
+.show-divider {
+  width: 3px;
+  height: 56px;
+  margin: 0 2.5rem;
+  background-color: #762f2f;
+  border-radius: 2px;
+}
+
+.show-place {
+  flex: 5;
+}
+
+.city {
+  font-size: clamp(1.3rem, 1.6vw, 1.9rem);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chip-next {
+  background-color: #e0605a;
+  color: #08141a;
+  border-radius: 20px;
+  padding: 0.25rem 0.9rem;
+  font-size: 0.8rem;
+}
+
+.venue {
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  color: #e0605a;
+}
+
+.show-time {
+  flex: 2;
+  font-size: 1.1rem;
+}
+
+.show-status {
+  flex: 1.5;
+}
+
+.status {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  border: 1px solid #b8c4c7;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #b8c4c7;
+}
+
+.status-few {
+  border-color: #e0605a;
+  color: #e0605a;
+}
+
+.show-btn {
+  flex: 1.5;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-tickets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 190px;
+  max-width: 100%;
+  height: 52px;
+  background-color: #762f2f;
+  border-radius: 9px;
+  font-size: 1.1rem;
+  color: white;
+}
+
+a.btn-tickets:hover {
+  background-color: #e0605a;
+}
+
+.btn-soldout {
+  background-color: transparent;
+  border: 1px solid #b8c4c7;
+  color: #b8c4c7;
+  cursor: not-allowed;
+}
+
+/* ------------------------- CONTACT -------------------------- */
+
+.contact {
+  width: 100%;
+  padding: 5rem 5% 4rem 5%;
+  background-color: #0a2a32;
+  background-image: linear-gradient(135deg, #0a2a32 47%, #052027 100%);
+}
+
+.contact-container {
+  width: 100%;
+  max-width: 1728px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.contact-top {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.contact-left {
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.2rem;
+}
+
+.contact-intro {
+  max-width: 660px;
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.channel {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 800px;
+  padding: 1rem 1.5rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(215, 152, 112, 0.25);
+  border-radius: 1.2rem;
+}
+
+.channel-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #762f2f;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.channel-text {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.3rem;
+}
+
+.role {
+  font-size: 0.85rem;
+  color: #e0605a;
+}
+
+.channel-text a {
+  font-size: 1.3rem;
+}
+
+.channel-text a:hover {
+  color: #e0605a;
+}
+
+.contact-right {
+  flex: 1;
+  min-height: 30rem;
+  background-image: url("../img/mora-contact.png");
+  background-size: contain;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
+
+.contact-form {
+  margin-top: 3rem;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 3rem;
+  padding: 3rem;
+  background-color: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(215, 152, 112, 0.25);
+  border-radius: 2rem;
+}
+
+.form-left,
+.form-right {
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.3rem;
+}
+
+.contact-form h2 {
+  font-size: 2.2rem;
+}
+
+.form-note {
+  font-size: 0.95rem;
+  color: #b8c4c7;
+}
+
+.form-row {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1.3rem;
+}
+
+.field {
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5rem;
+}
+
+.field label {
+  font-size: 0.95rem;
+  color: #e0605a;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  background-color: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(184, 196, 199, 0.3);
+  border-radius: 10px;
+  color: white;
+  font-family: "Gravitas One", serif;
+  font-size: 1rem;
+}
+
+select option {
+  background-color: #0a2a32;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid #e0605a;
+}
+
+::placeholder {
+  color: #b8c4c7;
+}
+
+.field-message {
+  flex: 1;
+}
+
+textarea {
+  flex: 1;
+  min-height: 200px;
+  resize: none;
+}
+
+.form-bottom {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.consent {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.95rem;
+  color: #b8c4c7;
+}
+
+.consent input {
+  width: 26px;
+  height: 26px;
+  accent-color: #762f2f;
+  cursor: pointer;
+}
+
+.submit {
+  min-width: 260px;
+  height: 60px;
+  background-color: #762f2f;
+  color: white;
+  border: 0;
+  border-radius: 12px;
+  font-family: "Gravitas One", serif;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.submit:hover {
+  background-color: #e0605a;
+}
+
+.form-ok {
+  color: #e0605a;
+}
+
+/* ------------------------- SHOP -------------------------- */
+
+.shop {
+  width: 100%;
+  padding: 4rem 5% 5rem 5%;
+  background-color: #0a2a32;
+  background-image: linear-gradient(315deg, #0a2a32 47%, #052027 100%);
+}
+
+.shop-container {
+  width: 100%;
+  max-width: 1728px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.products {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.product {
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  padding: 14px;
+  background-color: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(215, 152, 112, 0.25);
+  border-radius: 1.5rem;
+}
+
+.product-art {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 386 / 340;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 1rem;
+}
+
+.product:nth-child(1) .product-art {
+  background-image: url("../img/shop-tee.png");
+}
+
+.product:nth-child(2) .product-art {
+  background-image: url("../img/shop-poster.png");
+}
+
+.product:nth-child(3) .product-art {
+  background-image: url("../img/shop-vinyl.png");
+}
+
+.product:nth-child(4) .product-art {
+  background-image: url("../img/shop-digital.png");
+}
+
+.badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  padding: 0.3rem 0.8rem;
+  background-color: #e0605a;
+  color: #08141a;
+  border-radius: 6px;
+  font-size: 0.75rem;
+}
+
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.product-name {
+  font-size: 1.5rem;
+}
+
+.product-detail {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: #e0605a;
+}
+
+.product-price {
+  font-size: 1.9rem;
+}
+
+.btn-cart {
+  height: 56px;
+  background-color: #762f2f;
+  color: white;
+  border: 0;
+  border-radius: 12px;
+  font-family: "Gravitas One", serif;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+.btn-cart:hover {
+  background-color: #e0605a;
+}
+
+/* ------------------------- FOOTER -------------------------- */
+
+footer {
+  width: 100%;
+  padding: 0 5%;
+  background-color: #052027;
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1728px;
+  margin: 0 auto;
+  padding: 1.8rem 0;
+  border-top: 3px solid #762f2f;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-logo {
+  width: 110px;
+  height: 68px;
+  background-image: url("../img/logo.png");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.copyright {
+  font-size: 0.9rem;
+  color: #b8c4c7;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.footer-links a {
+  font-family: "Gveret Levin", serif;
+  font-size: 1.75rem;
+  text-transform: uppercase;
+  color: #d79870;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+/* ------------------------- RESPONSIVE -------------------------- */
+
+@media screen and (max-width: 955px) {
+  .menu-on {
+    display: none;
+  }
+
+  .nav-collapse {
+    display: flex;
+    width: 35px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .navicon {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .navicon span {
+    width: 50%;
+    display: inline-block;
+    position: absolute;
+    height: 3px;
+    background-color: #d79870;
+  }
+
+  .navicon span:nth-child(1) {
+    top: 0;
+    left: 0;
+  }
+  .navicon span:nth-child(2) {
+    top: 0;
+    right: 0;
+  }
+  .navicon span:nth-child(3) {
+    top: 13px;
+    left: 0;
+  }
+  .navicon span:nth-child(4) {
+    top: 13px;
+    right: 0;
+  }
+  .navicon span:nth-child(5) {
+    bottom: 0;
+    left: 0;
+  }
+  .navicon span:nth-child(6) {
+    bottom: 0;
+    right: 0;
+  }
+
+  .menu-on.open {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0 1.5rem 0;
+    background-color: #000;
+    text-align: center;
+  }
+
+  .menu-on.open li + li {
+    border-left: 0;
+  }
+
+  .menu-on.open li a {
+    padding: 0.8rem 0;
+  }
+
+  .logo {
+    min-width: 120px;
+  }
+
+  .hero {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .hero-container {
+    flex-flow: column nowrap;
+  }
+
+  .hero-left {
+    flex: none;
+    height: auto;
+    padding: 12vh 1.5rem 2rem 1.5rem;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .hero-quote {
+    max-width: 100%;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+
+  .hero-right {
+    flex: none;
+    height: 60vh;
+    background-position: bottom center;
+  }
+
+  .hero-arrow {
+    display: none;
+  }
+
+  .container-bio {
+    flex-flow: column nowrap;
+  }
+
+  .bio-photo {
+    flex: none;
+    width: 100%;
+    height: 60vh;
+    align-self: auto;
+    background-position: bottom center;
+  }
+
+  .bio-text {
+    flex: none;
+    padding: 2rem 1.5rem 4rem 1.5rem;
+  }
+
+  .section-header {
+    width: 100%;
+  }
+
+  .featured {
+    flex-flow: column nowrap;
+    padding: 1.5rem;
+  }
+
+  .featured-cover {
+    flex: none;
+    min-height: 22rem;
+  }
+
+  .featured-info,
+  .top-songs {
+    flex: none;
+  }
+
+  .albums-list {
+    flex-flow: row wrap;
+  }
+
+  .album {
+    flex: 1 1 40%;
+  }
+
+  .video-main {
+    width: 100%;
+  }
+
+  .video-list {
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+
+  .video-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .show {
+    flex-flow: row wrap;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .show-divider {
+    display: none;
+  }
+
+  .show-date,
+  .show-place {
+    flex: 1 1 40%;
+  }
+
+  .show-time,
+  .show-status,
+  .show-btn {
+    flex: 1 1 25%;
+  }
+
+  .contact-top {
+    flex-flow: column nowrap;
+  }
+
+  .contact-right {
+    flex: none;
+    min-height: 28rem;
+    background-position: bottom center;
+  }
+
+  .contact-form {
+    flex-flow: column nowrap;
+    padding: 1.5rem;
+  }
+
+  .products {
+    flex-flow: row wrap;
+  }
+
+  .product {
+    flex: 1 1 40%;
+  }
+
+  .footer-container {
+    flex-flow: column nowrap;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .hero-title {
+    font-size: clamp(2.5rem, 13vw, 4rem);
+  }
+
+  .menu-on li a {
+    font-size: 1.6rem;
+  }
+
+  .albums,
+  .videos,
+  .tour,
+  .contact,
+  .shop {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .featured-info .label-row {
+    flex-flow: row nowrap;
+  }
+
+  .albums-list {
+    flex-flow: column nowrap;
+  }
+
+  .album {
+    flex: none;
+    width: 100%;
+  }
+
+  .song {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .song-name {
+    flex: 1 1 60%;
+  }
+
+  .timeline {
+    flex-flow: column nowrap;
+    gap: 1.5rem;
+    border-top: 0;
+    border-left: 2px solid #d79870;
+    padding: 0 0 0 1.5rem;
+  }
+
+  .milestone:nth-child(n) {
+    text-align: left;
+  }
+
+  .milestone:nth-child(n) .point {
+    left: calc(-1.5rem - 10px);
+    right: auto;
+    top: 0;
+    transform: none;
+  }
+
+  .tour-map {
+    aspect-ratio: 1 / 1;
+  }
+
+  .pin-label {
+    display: none;
+  }
+
+  .chip-route {
+    font-size: 0.65rem;
+    left: 4%;
+  }
+
+  .chip-count {
+    font-size: 0.65rem;
+    right: 4%;
+  }
+
+  .show-date,
+  .show-place,
+  .show-time,
+  .show-status,
+  .show-btn {
+    flex: 1 1 100%;
+  }
+
+  .show-btn {
+    justify-content: flex-start;
+  }
+
+  .city {
+    flex-wrap: wrap;
+  }
+
+  .form-row {
+    flex-flow: column nowrap;
+  }
+
+  .form-bottom {
+    flex-flow: column nowrap;
+    align-items: stretch;
+  }
+
+  .submit {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .channel-text a {
+    font-size: 0.95rem;
+    word-break: break-all;
+  }
+
+  .product {
+    flex: none;
+    width: 100%;
+  }
+}
