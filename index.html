@@ -32,6 +32,7 @@
     <!-- ------------------------- HERO ------------------------- -->
     <section class="hero" id="home">
       <div class="hero-container">
+        <div class="hero-bg"></div>
         <div class="hero-left">
           <h1 class="hero-title">
             Gabriel <br />Armando <br /><span>Mora</span> <br />Quintero
@@ -247,7 +248,8 @@
           <div class="video-item">
             <div class="video-frame">
               <iframe
-                src="https://www.youtube.com/embed/XL_cHR_5P3Y"
+                src="https://www.youtube.com/embed/dVBi_3QcdPg?si=1U4RO3rfPYgwe-kH" 
+                title="YouTube video player" 
                 title="Mora - DETRÁS DE TU ALMA (EN VIVO)"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -315,7 +317,7 @@
             <div class="show-divider"></div>
             <div class="show-place">
               <p class="city">Madrid, Spain <span class="next">NEXT</span></p>
-              <p class="place">WiZink Center</p>
+              <p class="venue">WiZink Center</p>
             </div>
             <div class="show-time">Sat - 21:00</div>
             <div class="show-status"><span class="status">On sale</span></div>
@@ -335,7 +337,7 @@
             <div class="show-divider"></div>
             <div class="show-place">
               <p class="city">Barcelona, Spain</p>
-              <p class="place">Palau Sant Jordi</p>
+              <p class="venue">Palau Sant Jordi</p>
             </div>
             <div class="show-time">Wed - 21:00</div>
             <div class="show-status">
@@ -357,7 +359,7 @@
             <div class="show-divider"></div>
             <div class="show-place">
               <p class="city">Mexico City, Mexico</p>
-              <p class="place">Arena CDMX</p>
+              <p class="venue">Arena CDMX</p>
             </div>
             <div class="show-time">Sat - 21:30</div>
             <div class="show-status"><span class="status">On sale</span></div>
@@ -377,7 +379,7 @@
             <div class="show-divider"></div>
             <div class="show-place">
               <p class="city">San Juan, Puerto Rico</p>
-              <p class="place">Coliseo de Puerto Rico</p>
+              <p class="venue">Coliseo de Puerto Rico</p>
             </div>
             <div class="show-time">Sat - 21:00</div>
             <div class="show-status"><span class="status">Sold out</span></div>
@@ -397,7 +399,7 @@
             <div class="show-divider"></div>
             <div class="show-place">
               <p class="city">Miami, USA</p>
-              <p class="place">Kaseya Center</p>
+              <p class="venue">Kaseya Center</p>
             </div>
             <div class="show-time">Wed - 21:00</div>
             <div class="show-status"><span class="status">On sale</span></div>
@@ -430,31 +432,25 @@
               <span class="channel-icon">&#9993;</span>
               <div class="channel-text">
                 <span class="role">BOOKING</span>
-                <a href="mailto:example@lomismodesiempre.com"
-                  >example@lomismodesiempre.com</a
-                >
+                  <p>example@lomismodesiempre.com</p>
               </div>
             </div>
             <div class="channel">
               <span class="channel-icon">&#9993;</span>
               <div class="channel-text">
                 <span class="role">PRESS</span>
-                <a href="mailto:example@lomismodesiempre.com"
-                  >example@lomismodesiempre.com</a
-                >
+                <p>example@lomismodesiempre.com</p>
               </div>
             </div>
             <div class="channel">
               <span class="channel-icon">&#9993;</span>
               <div class="channel-text">
                 <span class="role">MANAGEMENT</span>
-                <a href="mailto:example@lomismodesiempre.com"
-                  >example@lomismodesiempre.com</a
-                >
+                <p>example@lomismodesiempre.com</p>
               </div>
             </div>
           </div>
-          <div class="contact-right"></div>
+          <div class="contact-right"><div class="contact-photo"></div></div>
         </div>
 
         <form class="contact-form" action="">
@@ -504,9 +500,25 @@
                 <input type="checkbox" name="consent" required />
                 <span>I agree to be contacted about my message.</span>
               </label>
-              <button class="submit" type="submit">Send message &rarr;</button>
+              <button class="submit" type="submit">Send message<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="20px " height="20px" viewBox="0 0 512.000000 512.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+fill="white" stroke="none">
+<path d="M2480 4346 c-1273 -425 -2329 -780 -2346 -789 -46 -24 -101 -92 -120
+-150 -42 -127 25 -284 142 -333 18 -7 531 -156 1140 -330 610 -174 1114 -321
+1120 -328 7 -6 154 -510 328 -1120 174 -609 323 -1122 330 -1140 49 -116 196
+-181 327 -143 63 19 131 73 158 126 35 69 1561 4666 1561 4702 0 151 -133 281
+-284 278 -26 0 -900 -287 -2356 -773z m1039 -632 l-1026 -1026 -1094 312
+c-602 172 -1098 315 -1104 318 -8 5 4211 1419 4240 1421 5 1 -452 -461 -1016
+-1025z m513 -1304 c-390 -1168 -711 -2120 -714 -2115 -3 6 -146 502 -318 1104
+l-312 1094 1023 1023 c563 563 1024 1022 1026 1020 1 -1 -316 -958 -705 -2126z"/>
+</g>
+</svg>
+</button>
             </div>
-            <p class="form-ok" hidden>Thanks! Your message has been sent.</p>
+            
           </div>
         </form>
       </div>
@@ -527,7 +539,7 @@
         <div class="products">
           <div class="product">
             <div class="product-art">
-              <span class="badge">BEST SELLER</span>
+             
             </div>
             <div class="product-info">
               <div>
@@ -541,7 +553,7 @@
 
           <div class="product">
             <div class="product-art">
-              <span class="badge">LIMITED</span>
+              
             </div>
             <div class="product-info">
               <div>
@@ -555,7 +567,7 @@
 
           <div class="product">
             <div class="product-art">
-              <span class="badge">NEW</span>
+              
             </div>
             <div class="product-info">
               <div>
@@ -569,7 +581,7 @@
 
           <div class="product">
             <div class="product-art">
-              <span class="badge">INSTANT DOWNLOAD</span>
+             
             </div>
             <div class="product-info">
               <div>
@@ -592,9 +604,9 @@
           <span class="copyright">© 2026 Lo Mismo de Siempre</span>
         </div>
         <ul class="footer-links">
-          <li><a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube</a></li>
-          <li><a href="https://open.spotify.com" target="_blank" rel="noopener">Spotify</a></li>
+          <li><a href="https://www.instagram.com/mora/?hl=es" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.youtube.com/channel/UCv0Gdfwyin6w3vbpZnEpmrQ" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://open.spotify.com/intl-es/artist/0Q8NcsJwoCbZOHHW63su5S" target="_blank" rel="noopener">Spotify</a></li>
           <li><a href="#home">Back to top</a></li>
         </ul>
       </div>

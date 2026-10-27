@@ -60,13 +60,13 @@ h2 {
 .hline {
   flex: 1;
   height: 3px;
-  background-color: #762F2F;
+  background-color: #762f2f;
 }
 
 .hline-bottom {
   width: 100%;
   height: 3px;
-  background-color: #762F2F;
+  background-color: #762f2f;
   margin-top: 0.5rem;
 }
 
@@ -124,15 +124,17 @@ nav {
   flex: 1;
   height: 130px;
   min-height: 90px;
+  z-index: 1;
 }
 
 .img-logo {
-  height: 100%;
+  height: 80%;
   width: 100%;
   background-image: url("../img/logo.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left center;
+  
 }
 
 .nav {
@@ -174,10 +176,21 @@ nav {
   position: relative;
   width: 100%;
   height: 100vh;
+  
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   background-image: url("../img/hero-bg.jpg");
+  filter: blur(5px);
   background-size: cover;
-  background-position: center ;
+  background-position: center;
   background-repeat: no-repeat;
+  z-index: 1;
 }
 
 .hero-container {
@@ -227,19 +240,19 @@ nav {
 }
 
 .hero-right {
-  position: static;
-  width: 100%;
+  position: relative;
+  z-index: 2;
+  flex: 1;
   height: 100%;
-  
 }
 
-.hero-photo {
 
+.hero-photo {
   width: 100%;
   height: 100%;
   background-image: url("../img/mora-hero.png");
-  background-size: cover;
-  background-position: center center;
+  background-size: contain;
+  background-position: right bottom;
   background-repeat: no-repeat;
 }
 
@@ -335,8 +348,8 @@ nav {
   width: 17px;
   height: 17px;
   border-radius: 50%;
-  border: 2px solid #762F2F;
-  background-color: white;
+  border: 1px solid #000000;
+  background-color: #762f2f;
 }
 
 .info-timeline:nth-child(1) .point {
@@ -773,6 +786,7 @@ a.btn-tickets:hover {
 }
 
 .contact-left {
+  
   flex: 1;
   display: flex;
   flex-flow: column nowrap;
@@ -819,21 +833,22 @@ a.btn-tickets:hover {
   color: #762F2F;
 }
 
-.channel-text a {
+.channel-text p {
   font-size: 1.3rem;
-}
-
-.channel-text a:hover {
-  color: #e0605a;
 }
 
 .contact-right {
   flex: 1;
-  min-height: 30rem;
+  display: flex ;
+}
+
+.contact-photo {
+  width: 100%;
+  height: 170%;
   background-image: url("../img/mora-contact.png");
   background-size: contain;
-  background-position: bottom right;
   background-repeat: no-repeat;
+  background-position: top;
 }
 
 .contact-form {
@@ -842,14 +857,14 @@ a.btn-tickets:hover {
   flex-flow: row nowrap;
   gap: 3rem;
   padding: 3rem;
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px); /* Aplica el difuminado al fondo, lo tuve que investigar */
   border: 1px solid rgba(215, 152, 112, 0.25);
   border-radius: 2rem;
 }
 
 .form-left,
 .form-right {
-  flex: 1;
   display: flex;
   flex-flow: column nowrap;
   gap: 1.3rem;
@@ -900,6 +915,7 @@ select option {
   background-color: #0a2a32;
 }
 
+/* Investigue un poco de como podia cambiar el color al form, aparte deque me base un poco en el que hicimos en clase */
 input[type="text"]:focus,
 input[type="email"]:focus,
 select:focus,
@@ -908,6 +924,7 @@ textarea:focus {
   border: 1px solid #e0605a;
 }
 
+/* Esto modicara el texto de dentro de los inputs del form */
 ::placeholder {
   color: #b8c4c7;
 }
@@ -918,7 +935,7 @@ textarea:focus {
 
 textarea {
   flex: 1;
-  min-height: 200px;
+  height: 200px;
   resize: none;
 }
 
@@ -941,12 +958,11 @@ textarea {
 .consent input {
   width: 26px;
   height: 26px;
-  accent-color: #762f2f;
   cursor: pointer;
 }
 
 .submit {
-  min-width: 260px;
+  width: 260px;
   height: 60px;
   background-color: #762f2f;
   color: white;
@@ -955,15 +971,17 @@ textarea {
   font-family: "Gravitas One", serif;
   font-size: 1.1rem;
   cursor: pointer;
+
+  display: flex;
+  align-items: center;       
+  justify-content: center;   
+  gap: 12px;
 }
 
 .submit:hover {
   background-color: #e0605a;
 }
 
-.form-ok {
-  color: #e0605a;
-}
 
 /* ------------------------- SHOP -------------------------- */
 
@@ -1003,7 +1021,7 @@ textarea {
 .product-art {
   position: relative;
   width: 100%;
-  aspect-ratio: 386 / 340;
+  aspect-ratio: 386 / 386;
   background-color: rgba(0, 0, 0, 0.3);
   background-size: cover;
   background-position: center center;
@@ -1084,7 +1102,7 @@ footer {
 
 .footer-container {
   width: 100%;
-  max-width: 1728px;
+  width: 1728px;
   margin: 0 auto;
   padding: 1.8rem 0;
   border-top: 3px solid #762f2f;
@@ -1133,7 +1151,7 @@ footer {
 
 /* ------------------------- RESPONSIVE -------------------------- */
 
-@media screen and (max-width: 955px) {
+/* @media screen and (max-width: 955px) {
   .menu-on {
     display: none;
   }
@@ -1458,4 +1476,4 @@ footer {
     flex: none;
     width: 100%;
   }
-}
+} */
