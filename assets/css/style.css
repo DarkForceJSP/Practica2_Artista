@@ -27,7 +27,7 @@ ul {
 
 /* ------------------ ELEMENTOS COMUNES ------------------ */
 
-/* En su momento los cree confore me iban haciendo falta, ahora estan aqui para que esten orgnizado y legible el codigo */
+/* En su momento los cree conforme me iban haciendo falta, ahora estan aqui para que esten orgnizado y legible el codigo */
 h4 {
   font-size: clamp(1.4rem, 1.12rem + 1.15vw, 2.5rem);
   text-transform: uppercase;
@@ -331,6 +331,8 @@ nav {
   color: #762f2f;
 }
 
+/* Sube el punto hasta la línea: 1.5rem del padding de .timeline
+   + la mitad del círculo (17px / 2) + el borde, redondeado a 10px. */
 .point {
   position: absolute;
   top: calc(-1.5rem - 10px);
@@ -487,12 +489,16 @@ nav {
 }
 
 .song-num {
+  /* El número no se encoge: así es el iframe el que se adapta al espacio */
+  flex: none;
   font-size: 1.2rem;
   width: 2rem;
 }
 
 .song iframe {
   flex: 1;
+  /* Se le asigna min-width: 0 para que se pueda encoger y asi no se salga de la pantalla*/
+  min-width: 0;
   width: 100%;
   height: 80px;
   border: 0;
@@ -607,6 +613,8 @@ nav {
 
 .tour-map {
   width: 100%;
+  /* Es la misma relacion de aspecto que teneia en el mockup, para saberla estuve hciendo pruebas, para asegurarme que si lo era
+  probe a meterlo a la ia, y me dio esta resolucion, supuestamente es la a fin al mockup o la que mas parecido tiene*/
   aspect-ratio: 1728 / 560;
   margin-top: 3rem;
   margin-bottom: 2.5rem;
@@ -847,6 +855,7 @@ a.btn-tickets:hover {
 
 .contact-photo {
   width: 100%;
+  /* Se pone a 170 para que la foto se ponga por debajo del form */
   height: 170%;
   background-image: url("../img/mora-contact.png");
   background-size: contain;
@@ -944,13 +953,15 @@ textarea {
 
 .form-bottom {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
   gap: 1.5rem;
 }
 
 .consent {
+  /* 18rem Seria el maximo tamaño hasta que hiciera el salto hacia abajo */
+  flex: 1 1 18rem;
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -965,8 +976,12 @@ textarea {
 }
 
 .submit {
+  /* Esto lo tuve que poner asi para que el boton no se saliera su contenido de dentro de el */
+  flex: none;
   width: 260px;
+  max-width: 100%;
   height: 60px;
+  white-space: nowrap;
   background-color: #762f2f;
   color: white;
   border: 0;
@@ -983,6 +998,10 @@ textarea {
 
 .submit:hover {
   background-color: #e0605a;
+}
+
+.submit svg {
+  flex: none; /* Gracias a eso el icono de la flecha no se rompera*/
 }
 
 /* ------------------------- SHOP -------------------------- */
@@ -1022,7 +1041,7 @@ textarea {
 
 .product-art {
   width: 100%;
-  aspect-ratio: 386 / 386;
+  aspect-ratio: 1 / 1;
   background-color: rgba(0, 0, 0, 0.3);
   background-size: cover;
   background-position: center center;
@@ -1048,9 +1067,15 @@ textarea {
 
 .product-info {
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
+  gap: 0.5rem;
   padding: 0 10px;
+}
+
+.product-info div {
+  flex: 1;
 }
 
 .product-name {
@@ -1064,6 +1089,8 @@ textarea {
 }
 
 .product-price {
+  /* POr decision propia me gustaba la idea de que el valor del precio se mantuviera del mismo tamaño */
+  flex: none;
   font-size: 1.9rem;
 }
 
@@ -1141,7 +1168,7 @@ footer {
 
 /* ------------------------- RESPONSIVE -------------------------- */
 
-/* ---------- Tablet grande ---------- */
+/* ---------- Tablet grande / Portatil ---------- */
 @media screen and (max-width: 1100px) {
   .albums-list,
   .products {
@@ -1149,15 +1176,15 @@ footer {
     justify-content: center;
   }
 
-  /* 2 por fila: 50% menos la mitad del gap (2rem) */
   .album,
   .product {
+    /* HAgo ese calculo para que aparezcan dos albums y productos por fila 50% menos la mitad del gap (2rem)  */
     flex: 1 1 calc(50% - 1rem);
     min-width: 0;
   }
 }
 
-/* ---------- Tablet / móvil: todo en una columna ---------- */
+/* ---------- Tablet / móvil ---------- */
 @media screen and (max-width: 955px) {
 
  
@@ -1241,6 +1268,7 @@ footer {
   .hero-right {
     flex: none;
     width: 100%;
+    /* La proporcion de la foto del hero */
     aspect-ratio: 833 / 866;
     max-height: 75vh;
   }
@@ -1283,6 +1311,8 @@ footer {
 
   .section-header {
     width: 100%;
+    /* Habra que poner el min-width a 0 ya que en moviles estrechos se puede romper y puede ser que no sea tan responsive*/
+    min-width: 0;
     max-width: 520px;
   }
 
@@ -1462,12 +1492,12 @@ footer {
     height: 160px;
   }
 
-  /*-------------------- SHOP------------------- */
+  /*--------------- SHOP------------------- */
   .shop {
     padding: 3rem 5% 4rem;
   }
 
-  /*----------------------------- FOOTER ---------------------------*/
+  /*--------------- FOOTER -----------------*/
   .footer-container {
     flex-flow: column nowrap;
     gap: 1.5rem;
@@ -1482,7 +1512,7 @@ footer {
 }
 
 /* ---------- Móvil---------- */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 400px) {
   .hero-quote {
     font-size: 1rem;
   }
@@ -1519,6 +1549,8 @@ footer {
     text-align: left;
   }
 
+  /* Con ese calculo sube a la linea los puntos.    
+  1.5rem del padding de .timeline + la mitad del círculo (17px / 2) + el borde, redondeado a 10px. */
   .info-timeline:nth-child(n) .point {
     left: calc(-1.5rem - 10px);
     right: auto;
@@ -1586,6 +1618,59 @@ footer {
     gap: 0.6rem;
   }
 
+  /* La tarjeta pasa a 2 filas: arriba estara la fecha e info y abajo estara estado y botón */
+  .show {
+    flex-wrap: wrap;
+    gap: 0.8rem 0.6rem;
+    padding: 1rem;
+  }
+
+  .show-date {
+    gap: 0.4rem;
+  }
+
+  .day {
+    font-size: 1.8rem;
+  }
+
+  .month {
+    font-size: 0.9rem;
+  }
+
+  .year {
+    font-size: 0.7rem;
+  }
+
+  .show-info {
+    min-width: 0;
+  }
+
+  .city {
+    font-size: 1rem;
+  }
+
+  .place {
+    font-size: 0.8rem;
+  }
+
+  .show-time {
+    white-space: nowrap;
+    font-size: 0.85rem;
+  }
+
+  .show-actions {
+    
+    flex: none;
+    width: 100%;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .btn-tickets {
+    white-space: nowrap;
+  }
+
   /* --------------------Contact----------------------- */
   .contact-right {
     display: none;
@@ -1616,6 +1701,9 @@ footer {
   }
 
   .consent {
+    /* Aqui hbra que quitar el flex, ya que si no lo hiciera 
+    el form se me romperia y habria mucho espacio entre los elemtenos*/
+    flex: none;
     font-size: 0.85rem;
   }
 
