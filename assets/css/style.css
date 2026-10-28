@@ -1,22 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Gravitas+One&family=Gveret+Levin&display=swap");
 
+/* RESETO GLOBAL */
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-
-
-html,
-body {
-  height: 100%;
+ 
 }
 
 body {
   font-family: "Gravitas One", serif;
-  width: 100%;
-  height: 100%;
-  margin: 0;
   background-color: #052027;
   color: white;
 }
@@ -31,8 +25,11 @@ ul {
 }
 
 
+/* ------------------ ELEMENTOS COMUNES ------------------ */
+
+/* En su momento los cree confore me iban haciendo falta, ahora estan aqui para que esten orgnizado y legible el codigo */
 h4 {
-  font-size: clamp(1.4rem, 2.1vw, 2.5rem);
+  font-size: clamp(1.4rem, 1.12rem + 1.15vw, 2.5rem);
   text-transform: uppercase;
   font-family: "Gravitas One", serif;
   color: #762F2F;
@@ -40,7 +37,7 @@ h4 {
 }
 
 h1 {
-  font-size: clamp(2.2rem, 3.4vw, 4rem);
+  font-size: clamp(2.2rem, 1.741rem + 1.882vw, 4rem);
   font-family: "Gravitas One", serif;
   font-weight: normal;
 }
@@ -54,8 +51,6 @@ h2 {
   font-family: "Gravitas One", serif;
   font-weight: normal;
 }
-
-/* ------------------ ELEMENTOS COMUNES ------------------ */
 
 .hline {
   flex: 1;
@@ -106,46 +101,43 @@ h2 {
 /* ------------------------- NAV -------------------------- */
 
 nav {
+  
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 999;
   width: 100%;
-  height: 9vh;
-  min-height: 80px;
+  height: clamp(5.5rem, 4.99rem + 2.092vw, 7.5rem);
   padding: 0 1.5rem;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  background-image: linear-gradient(to bottom, #000000 50%, rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to bottom, #000000 25%, rgba(0, 0, 0, 0) 100%);
 }
+
 
 .logo {
-  flex: 1;
-  height: 130px;
-  min-height: 90px;
-  z-index: 1;
-}
-
-.img-logo {
+  flex: none;
   height: 80%;
-  width: 100%;
+  aspect-ratio: 467 / 319;
   background-image: url("../img/logo.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left center;
-  
 }
 
 .nav {
-  flex: 6;
+  flex: 1;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .menu-on {
   display: flex;
   align-items: center;
+  
 }
 
 .menu-on li a {
@@ -153,7 +145,7 @@ nav {
   padding: 0 1.3rem;
   text-transform: uppercase;
   color: #D79870;
-  font-size: clamp(1rem, 1.4vw, 1.6rem);
+  font-size: clamp(1rem, 0.847rem + 0.627vw, 1.6rem);
   font-family: "Gveret Levin", serif;
 }
 
@@ -168,6 +160,7 @@ nav {
 
 .nav-collapse {
   display: none;
+  cursor: pointer;
 }
 
 /* ------------------------- HERO -------------------------- */
@@ -175,16 +168,23 @@ nav {
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
-  
+  min-height: 100vh;
 }
 
+.hero-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: hidden;
+}
+
+ /* Tuve que investigar, porque para hacer el fondo transparente tuve que usar el filter: blur(5px) y el inset: -10px(Para hacer que tras 
+ habr distorsionado el fondo no se vea nada detras y se vea la imagen solo distorsionada)*/
 .hero-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+  inset: -10px; /* Esta etiqueta significa como poner top bottom left y right a 0, es una manera de abreviarlo*/
   background-image: url("../img/hero-bg.jpg");
   filter: blur(5px);
   background-size: cover;
@@ -193,19 +193,12 @@ nav {
   z-index: 1;
 }
 
-.hero-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-}
-
 .hero-left {
   position: relative;
   z-index: 2;
   flex: 1.1;
-  height: 100%;
-  padding: 5rem ; 
+  min-width: 0;
+  padding: 5rem;
 
   display: flex;
   flex-flow: column nowrap;
@@ -213,8 +206,7 @@ nav {
 }
 
 .hero-title {
-  font-size: clamp(3rem, 6.8vw, 8.5rem);
-  
+  font-size: clamp(3rem, 1.598rem + 5.752vw, 8.5rem);
   color: white;
 }
 
@@ -243,13 +235,13 @@ nav {
   position: relative;
   z-index: 2;
   flex: 1;
-  height: 100%;
+  min-width: 0;
 }
 
 
 .hero-photo {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0; /* Esta etiqueta significa como poner top bottom left y right a 0, es una manera de abreviarlo*/
   background-image: url("../img/mora-hero.png");
   background-size: contain;
   background-position: right bottom;
@@ -274,23 +266,20 @@ nav {
 
 .biography {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #0a2a32;
   background-image: linear-gradient(135deg, #0a2a32 47%, #052027 100%);
 }
 
 .container-bio {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-flow: row nowrap;
-  align-items: center;
 }
 
 .bio-photo {
   flex: 1.4;
-  width: 100%;
-  height: 100%;
   background-image: url("../img/bio-photo.png");
   background-size: contain;
   background-position: bottom left;
@@ -299,6 +288,7 @@ nav {
 
 .bio-text {
   flex: 1;
+  align-self: center;
   padding: 4rem 6vw 0 2rem;
   display: flex;
   flex-flow: column nowrap;
@@ -318,7 +308,6 @@ nav {
 }
 
 .timeline {
-  position: relative;
   max-width: 808px;
   margin-top: 3rem;
   padding-top: 1.5rem;
@@ -399,7 +388,7 @@ nav {
   margin-top: 2rem;
   padding: 3rem;
   background-color: rgba(0, 0, 0, 0.25);
-  border-radius: clamp(2rem, 4vw, 76px);
+  border-radius: clamp(2rem, 1.299rem + 2.876vw, 4.75rem);
 }
 
 .featured-cover {
@@ -425,7 +414,7 @@ nav {
 }
 
 .featured-name {
-  font-size: clamp(1.6rem, 1.7vw, 2rem);
+  font-size: clamp(1.6rem, 1.498rem + 0.418vw, 2rem);
   color: white;
 }
 
@@ -504,7 +493,6 @@ nav {
 
 .song iframe {
   flex: 1;
-  width: 0;
   width: 100%;
   height: 80px;
   border: 0;
@@ -535,7 +523,7 @@ nav {
 
 .videos {
   width: 100%;
-  padding: 6rem 5% 4rem ;
+  padding: 6rem 5% 4rem;
   background-color: #0a2a32;
   background-image: linear-gradient(135deg, #0a2a32 47%, #052027 100%);
 }
@@ -604,7 +592,7 @@ nav {
 .tour {
   width: 100%;
   min-height: 100vh;
-  padding: 4rem 5% 6rem 5%;
+  padding: 4rem 5% 6rem ;
   background-color: #0a2a32;
   background-image: linear-gradient(315deg, #0a2a32 47%, #052027 100%);
 }
@@ -618,17 +606,14 @@ nav {
 }
 
 .tour-map {
-  position: relative;
   width: 100%;
   aspect-ratio: 1728 / 560;
   margin-top: 3rem;
   margin-bottom: 2.5rem;
- 
   background-image: url("../img/tour-map.svg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  
 }
 
 .shows {
@@ -642,7 +627,7 @@ nav {
   flex-flow: row nowrap;
   align-items: center;
   height: 104px;
-  padding: 1rem 3rem;
+  padding: clamp(1.2rem, 0.741rem + 1.882vw, 3rem);
   background-color: rgba(0, 0, 0, 0.25);
   border-radius: 1.2rem;
 }
@@ -660,7 +645,7 @@ nav {
 }
 
 .day {
-  font-size: clamp(2.2rem, 2.7vw, 3.25rem);
+  font-size: clamp(2.2rem, 1.932rem + 1.098vw, 3.25rem);
 }
 
 .month-year {
@@ -680,9 +665,18 @@ nav {
 .show-divider {
   width: 3px;
   height: 56px;
-  margin: 0 2.5rem;
+  margin: clamp(1rem, 0.618rem + 1.569vw, 2.5rem);
   background-color: #762f2f;
   border-radius: 2px;
+}
+
+.show-info {
+  flex: 7;
+  min-width: 0;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }
 
 .show-place {
@@ -690,7 +684,7 @@ nav {
 }
 
 .city {
-  font-size: clamp(1.3rem, 1.6vw, 1.9rem);
+  font-size: clamp(1.3rem, 1.147rem + 0.627vw, 1.9rem);
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -713,6 +707,14 @@ nav {
 .show-time {
   flex: 2;
   font-size: 1.1rem;
+}
+
+.show-actions {
+  flex: 3;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }
 
 .show-status {
@@ -743,12 +745,11 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 190px;
   width: 100%;
   height: 52px;
   background-color: #762f2f;
   border-radius: 9px;
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 0.912rem + 0.157vw, 1.1rem);
   color: white;
 }
 
@@ -760,7 +761,6 @@ a.btn-tickets:hover {
   background-color: transparent;
   border: 1px solid #b8c4c7;
   color: #b8c4c7;
-    
 }
 
 /* ------------------------- CONTACT -------------------------- */
@@ -786,8 +786,8 @@ a.btn-tickets:hover {
 }
 
 .contact-left {
-  
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-flow: column nowrap;
   gap: 1.2rem;
@@ -812,6 +812,7 @@ a.btn-tickets:hover {
 }
 
 .channel-icon {
+  flex: none;
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -823,6 +824,7 @@ a.btn-tickets:hover {
 }
 
 .channel-text {
+  min-width: 0;
   display: flex;
   flex-flow: column nowrap;
   gap: 0.3rem;
@@ -834,12 +836,13 @@ a.btn-tickets:hover {
 }
 
 .channel-text p {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 0.924rem + 0.314vw, 1.3rem);
+  overflow-wrap: anywhere;
 }
 
 .contact-right {
   flex: 1;
-  display: flex ;
+  display: flex;
 }
 
 .contact-photo {
@@ -915,7 +918,7 @@ select option {
   background-color: #0a2a32;
 }
 
-/* Investigue un poco de como podia cambiar el color al form, aparte deque me base un poco en el que hicimos en clase */
+/* Investigue un poco de como podia cambiar el color al form, aparte de que me base un poco en el form que hicimos en clase */
 input[type="text"]:focus,
 input[type="email"]:focus,
 select:focus,
@@ -973,15 +976,14 @@ textarea {
   cursor: pointer;
 
   display: flex;
-  align-items: center;       
-  justify-content: center;   
+  align-items: center;
+  justify-content: center;
   gap: 12px;
 }
 
 .submit:hover {
   background-color: #e0605a;
 }
-
 
 /* ------------------------- SHOP -------------------------- */
 
@@ -1019,7 +1021,6 @@ textarea {
 }
 
 .product-art {
-  position: relative;
   width: 100%;
   aspect-ratio: 386 / 386;
   background-color: rgba(0, 0, 0, 0.3);
@@ -1043,17 +1044,6 @@ textarea {
 
 .product:nth-child(4) .product-art {
   background-image: url("../img/shop-digital.png");
-}
-
-.badge {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  padding: 0.3rem 0.8rem;
-  background-color: #762F2F;
-  color: #08141a;
-  border-radius: 6px;
-  font-size: 0.75rem;
 }
 
 .product-info {
@@ -1102,7 +1092,7 @@ footer {
 
 .footer-container {
   width: 100%;
-  width: 1728px;
+  max-width: 1728px;
   margin: 0 auto;
   padding: 1.8rem 0;
   border-top: 3px solid #762f2f;
@@ -1135,12 +1125,12 @@ footer {
 
 .footer-links {
   display: flex;
-  gap: 2.5rem;
+  gap: clamp(1.1rem, 0.934rem + 0.68vw, 1.75rem);
 }
 
 .footer-links a {
   font-family: "Gveret Levin", serif;
-  font-size: 1.75rem;
+  font-size: clamp(1.1rem, 0.934rem + 0.68vw, 1.75rem);
   text-transform: uppercase;
   color: #d79870;
 }
@@ -1151,97 +1141,95 @@ footer {
 
 /* ------------------------- RESPONSIVE -------------------------- */
 
-/* @media screen and (max-width: 955px) {
+/* ---------- Tablet grande ---------- */
+@media screen and (max-width: 1100px) {
+  .albums-list,
+  .products {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  /* 2 por fila: 50% menos la mitad del gap (2rem) */
+  .album,
+  .product {
+    flex: 1 1 calc(50% - 1rem);
+    min-width: 0;
+  }
+}
+
+/* ---------- Tablet / móvil: todo en una columna ---------- */
+@media screen and (max-width: 955px) {
+
+ 
+  nav {
+    padding: 0 1rem;
+  }
+
   .menu-on {
     display: none;
   }
 
   .nav-collapse {
-    display: flex;
+    display: block;
+    position: relative;
     width: 35px;
     height: 30px;
-    cursor: pointer;
   }
 
-  .navicon {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-
-  .navicon span {
-    width: 50%;
-    display: inline-block;
+  .nav-collapse span {
     position: absolute;
+    width: 50%;
     height: 3px;
     background-color: #D79870;
   }
 
-  .navicon span:nth-child(1) {
+  /* El dibujado del menu de hamburguesa */
+  .nav-collapse span:nth-child(1) {
     top: 0;
     left: 0;
   }
-  .navicon span:nth-child(2) {
+
+  .nav-collapse span:nth-child(2) {
     top: 0;
     right: 0;
   }
-  .navicon span:nth-child(3) {
+
+  .nav-collapse span:nth-child(3) {
     top: 13px;
     left: 0;
   }
-  .navicon span:nth-child(4) {
+
+  .nav-collapse span:nth-child(4) {
     top: 13px;
     right: 0;
   }
-  .navicon span:nth-child(5) {
+
+  .nav-collapse span:nth-child(5) {
     bottom: 0;
     left: 0;
   }
-  .navicon span:nth-child(6) {
+
+  .nav-collapse span:nth-child(6) {
     bottom: 0;
     right: 0;
   }
 
-  .menu-on.open {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: stretch;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 1rem 0 1.5rem 0;
-    background-color: #000;
-    text-align: center;
-  }
-
-  .menu-on.open li + li {
-    border-left: 0;
-  }
-
-  .menu-on.open li a {
-    padding: 0.8rem 0;
-  }
-
-  .logo {
-    min-width: 120px;
-  }
-
-  .hero {
-    height: auto;
-    min-height: 100vh;
-  }
-
+  /* ------------------ HERO ------------------------- */
   .hero-container {
     flex-flow: column nowrap;
   }
 
   .hero-left {
     flex: none;
-    height: auto;
-    padding: 12vh 1.5rem 2rem 1.5rem;
+    justify-content: flex-start;
+    align-items: center;
     gap: 2rem;
+    padding: clamp(5.5rem, 4.99rem + 2.092vw, 7.5rem);
     text-align: center;
+  }
+
+  .hero-title {
+    font-size: clamp(2.4rem, 1.61rem + 3.242vw, 5.5rem);
   }
 
   .hero-quote {
@@ -1251,14 +1239,24 @@ footer {
   }
 
   .hero-right {
-    position: relative;
+    flex: none;
     width: 100%;
-    height: 60vh;
-    background-position: bottom center;
+    aspect-ratio: 833 / 866;
+    max-height: 75vh;
+  }
+
+  .hero-photo {
+    background-position: center bottom;
   }
 
   .hero-arrow {
     display: none;
+  }
+
+  /* ---------------------- BIOGRAPHY ------------------------------ */
+  .biography,
+  .container-bio {
+    min-height: auto;
   }
 
   .container-bio {
@@ -1267,77 +1265,168 @@ footer {
 
   .bio-photo {
     flex: none;
+    order: 1;
     width: 100%;
-    height: 60vh;
-    align-self: auto;
+    height: clamp(16rem, 12.431rem + 14.641vw, 30rem);
     background-position: bottom center;
   }
 
   .bio-text {
     flex: none;
-    padding: 2rem 1.5rem 4rem 1.5rem;
+    align-self: stretch;
+    padding: 2rem 1.5rem;
+  }
+
+  .bio-label {
+    max-width: none;
   }
 
   .section-header {
     width: 100%;
+    max-width: 520px;
+  }
+
+  /* --------------- ALBUMS ------------------------- */
+  .albums,
+  .tour {
+    min-height: auto;
+  }
+
+  .albums {
+    padding: 4rem 5%;
   }
 
   .featured {
     flex-flow: column nowrap;
+    gap: 2rem;
     padding: 1.5rem;
   }
 
   .featured-cover {
     flex: none;
-    min-height: 22rem;
+    width: min(100%, 26rem);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    align-self: center;
   }
 
   .featured-info,
   .top-songs {
     flex: none;
-  }
-
-  .albums-list {
-    flex-flow: row wrap;
-  }
-
-  .album {
-    flex: 1 1 40%;
-  }
-
-  .video-main {
     width: 100%;
+  }
+
+  /* -------------------------- VIDEOS --------------------------*/
+  .videos {
+    padding: 4rem 5% 3rem;
+  }
+
+  .video-main,
+  .video-item {
+    width: 100%;
+    max-width: 640px;
   }
 
   .video-list {
     flex-flow: column nowrap;
     align-items: center;
+    gap: 2rem;
   }
 
-  .video-item {
-    width: 100%;
-    max-width: 100%;
+  /* ----------------------- TOUR  ------------------------------------*/
+  .tour {
+    padding: 3rem 5% 4rem;
+  }
+
+  .tour-map {
+    aspect-ratio: 16 / 9;
+    margin: 2rem 0;
   }
 
   .show {
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
+    align-items: center;
     gap: 1rem;
-    padding: 1.5rem;
+    height: auto;
+    padding: 1rem 1.2rem;
+  }
+
+  .show-date {
+    flex: none;
+    gap: 0.6rem;
   }
 
   .show-divider {
-    display: none;
+    flex: none;
+    align-self: stretch;
+    height: auto;
+    min-height: 3rem;
+    margin: 0;
   }
 
-  .show-date,
-  .show-place {
-    flex: 1 1 40%;
+  .show-info {
+    flex: 1;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.6rem;
   }
 
-  .show-time,
+  .show-place,
+  .show-time {
+    flex: none;
+  }
+
+  .show-time {
+    font-size: 0.95rem;
+  }
+
+  .show-actions {
+    flex: none;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
   .show-status,
   .show-btn {
-    flex: 1 1 25%;
+    flex: none;
+  }
+
+  .day {
+    font-size: 2.2rem;
+  }
+
+  .month {
+    font-size: 1rem;
+  }
+
+  .city {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: clamp(1.1rem, 0.998rem + 0.418vw, 1.5rem);
+  }
+
+  .place {
+    font-size: 0.9rem;
+  }
+
+  .status {
+    padding: 0.25rem 0.7rem;
+    font-size: 0.75rem;
+  }
+
+  .btn-tickets {
+    width: auto;
+    height: 40px;
+    padding: 0 1.2rem;
+    font-size: 1rem;
+  }
+
+  /* ---------------------- CONTACT------------------------- */
+  .contact {
+    padding: 3rem 5%;
   }
 
   .contact-top {
@@ -1346,36 +1435,60 @@ footer {
 
   .contact-right {
     flex: none;
-    min-height: 28rem;
-    background-position: bottom center;
+  }
+
+  .contact-photo {
+    height: 26rem;
+    background-position: top center;
   }
 
   .contact-form {
     flex-flow: column nowrap;
+    gap: 1.3rem;
+    margin-top: 2rem;
     padding: 1.5rem;
   }
 
-  .products {
-    flex-flow: row wrap;
+  .form-left,
+  .form-right {
+    width: 100%;
   }
 
-  .product {
-    flex: 1 1 40%;
+  .contact-form h2 {
+    font-size: 1.8rem;
   }
 
+  textarea {
+    height: 160px;
+  }
+
+  /*-------------------- SHOP------------------- */
+  .shop {
+    padding: 3rem 5% 4rem;
+  }
+
+  /*----------------------------- FOOTER ---------------------------*/
   .footer-container {
     flex-flow: column nowrap;
     gap: 1.5rem;
+    text-align: center;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem 1.5rem;
   }
 }
 
-@media screen and (max-width: 500px) {
-  .hero-title {
-    font-size: clamp(2.5rem, 13vw, 4rem);
+/* ---------- Móvil---------- */
+@media screen and (max-width: 600px) {
+  .hero-quote {
+    font-size: 1rem;
   }
 
-  .menu-on li a {
-    font-size: 1.2rem;
+  .btn-discover {
+    font-size: 1rem;
   }
 
   .albums,
@@ -1383,29 +1496,23 @@ footer {
   .tour,
   .contact,
   .shop {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
-  .featured-info .label-row {
-    flex-flow: row nowrap;
-  }
-
-  .albums-list {
-    flex-flow: column nowrap;
-  }
-
-  .album {
-    flex: none;
-    width: 100%;
-  }
-
+  /*Para hacer la sobreposicion de la linea del timepo tuve que utilizar la IA, 
+  ya que no era capaz de sacar como poner y hacerlo para que se viera correctamente*/
   .timeline {
     flex-flow: column nowrap;
     gap: 1.5rem;
-    border-top: 0;
-    border-left: 2px solid #d79870;
+    margin-top: 2rem;
     padding: 0 0 0 1.5rem;
+    border-top: 0;
+    border-left: 2px solid #762F2F;
+  }
+
+  .info-timeline {
+    flex: none;
   }
 
   .info-timeline:nth-child(n) {
@@ -1419,38 +1526,84 @@ footer {
     transform: none;
   }
 
-  .tour-map {
-    aspect-ratio: 1 / 1;
+  .info-timeline p {
+    font-size: 1rem;
   }
 
-  .pin-label {
+  /* Albums */
+  .featured-cover {
+    width: 100%;
+  }
+
+  .info-album {
+    flex-wrap: wrap;
+  }
+
+  .btn-listen {
+    font-size: 1.2rem;
+  }
+
+  .stream {
+    gap: 0.6rem;
+  }
+
+  .btn-stream {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .albums-list {
+    gap: 1rem;
+  }
+
+  
+  .album,
+  .product {
+    flex-basis: calc(50% - 0.5rem);
+  }
+
+  .album iframe {
+    height: 152px;
+  }
+
+  /* -------------------Video-------------------  */
+  .video-main,
+  .video-item {
+    max-width: none;
+  }
+
+  .video-title,
+  .video-item .video-title {
+    font-size: 1rem;
+  }
+
+  /* -=------------------Tour--------------------------*/
+  .tour-map {
     display: none;
   }
 
-  .chip-route {
-    font-size: 0.65rem;
-    left: 4%;
+  .shows {
+    gap: 0.6rem;
   }
 
-  .chip-count {
-    font-size: 0.65rem;
-    right: 4%;
+  /* --------------------Contact----------------------- */
+  .contact-right {
+    display: none;
   }
 
-  .show-date,
-  .show-place,
-  .show-time,
-  .show-status,
-  .show-btn {
-    flex: 1 1 100%;
+  .channel {
+    gap: 1rem;
+    padding: 0.8rem 1rem;
   }
 
-  .show-btn {
-    justify-content: flex-start;
+  .channel-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
   }
 
-  .city {
-    flex-wrap: wrap;
+  .channel-text p {
+    font-size:clamp(0.7rem, 0.598rem + 0.418vw, 1.1rem);
   }
 
   .form-row {
@@ -1462,18 +1615,54 @@ footer {
     align-items: stretch;
   }
 
+  .consent {
+    font-size: 0.85rem;
+  }
+
   .submit {
-    min-width: 0;
     width: 100%;
   }
 
-  .channel-text a {
-    font-size: 0.95rem;
-    word-break: break-all;
+  /* -----------------------------Shop----------------------------------- */
+  .products {
+    gap: 1rem;
+    margin-top: 2rem;
   }
 
   .product {
-    flex: none;
-    width: 100%;
+    gap: 0.7rem;
+    padding: 10px;
   }
-} */
+
+  .product-info {
+    padding: 0 4px;
+    gap: 0.5rem;
+  }
+
+  .product-name {
+    font-size: 0.95rem;
+  }
+
+  .product-detail {
+    display: none;
+  }
+
+  .product-price {
+    font-size: 1.1rem;
+  }
+
+  .btn-cart {
+    height: 44px;
+    font-size: 0.9rem;
+  }
+
+  /* Footer */
+  .footer-left {
+    flex-flow: column nowrap;
+    gap: 0.8rem;
+  }
+
+  .footer-links a {
+    font-size: 1.1rem;
+  }
+}
