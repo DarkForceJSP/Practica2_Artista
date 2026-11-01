@@ -121,7 +121,7 @@ nav {
 .logo {
   flex: none;
   height: 80%;
-  aspect-ratio: 467 / 319;
+  aspect-ratio: 1 / 0.5;
   background-image: url("../img/logo.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -1271,7 +1271,7 @@ footer {
     flex: none;
     width: 100%;
     /* La proporcion de la foto del hero */
-    aspect-ratio: 833 / 866;
+    aspect-ratio: 1 / 1;
     max-height: 75vh;
   }
 
