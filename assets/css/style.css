@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Gravitas+One&family=Gveret+Levin&display=swap");
 
-/* RESETO GLOBAL */
+/* ---------------RESETO GLOBAL------------------------ */
 
 * {
   padding: 0;
@@ -186,7 +186,7 @@ nav {
   position: absolute;
   inset: -10px; /* Esta etiqueta significa como poner top bottom left y right a 0, es una manera de abreviarlo*/
   background-image: url("../img/hero-bg.jpg");
-  filter: blur(5px);
+  filter: blur(5px); /* Esta etiqueta hace el efecto de desenfque*/
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -307,6 +307,8 @@ nav {
   max-width: 854px;
 }
 
+/*Para hacer la sobreposicion de la linea del timepo tuve que utilizar la IA, 
+  ya que no era capaz de sacar como poner y hacerlo para que se viera correctamente*/
 .timeline {
   max-width: 808px;
   margin-top: 3rem;
@@ -489,7 +491,7 @@ nav {
 }
 
 .song-num {
-  /* El número no se encoge: así es el iframe el que se adapta al espacio */
+  /* El número no se encoge, así es el iframe el que se adapta al espacio */
   flex: none;
   font-size: 1.2rem;
   width: 2rem;
@@ -497,7 +499,7 @@ nav {
 
 .song iframe {
   flex: 1;
-  /* Se le asigna min-width: 0 para que se pueda encoger y asi no se salga de la pantalla*/
+  /* Se le asigna min-width 0 para que se pueda encoger y asi no se salga de la pantalla*/
   min-width: 0;
   width: 100%;
   height: 80px;
@@ -619,7 +621,7 @@ nav {
   margin-top: 3rem;
   margin-bottom: 2.5rem;
   background-image: url("../img/tour-map.svg");
-  background-size: cover;
+  background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
 }
@@ -761,7 +763,7 @@ nav {
   color: white;
 }
 
-a.btn-tickets:hover {
+.btn-tickets:hover {
   background-color: #e0605a;
 }
 
@@ -1184,7 +1186,7 @@ footer {
   }
 }
 
-/* ---------- Tablet / móvil ---------- */
+/* ---------- Tablet | móvil ---------- */
 @media screen and (max-width: 955px) {
 
  
@@ -1366,11 +1368,6 @@ footer {
   /* ----------------------- TOUR  ------------------------------------*/
   .tour {
     padding: 3rem 5% 4rem;
-  }
-
-  .tour-map {
-    aspect-ratio: 16 / 9;
-    margin: 2rem 0;
   }
 
   .show {
